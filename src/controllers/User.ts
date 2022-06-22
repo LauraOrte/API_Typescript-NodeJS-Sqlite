@@ -2,49 +2,50 @@ import { openDb } from '../configDB';
 
 export async function createTable(){
     openDb().then(db=>{
-        db.exec('CREATE TABLE IF NOT EXISTS Pessoa ( id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER )')
+        db.exec('CREATE TABLE IF NOT EXISTS User ( id INTEGER AUTO_INCREMENT PRIMARY KEY , name TEXT, edad INTEGER )')
     })
 }
 
-export async function selectPessoas(req, res){
+export async function selectUsers(req, res){
     openDb().then(db=>{
-        db.all('SELECT * FROM Pessoa')
-        .then(pessoas=>  res.json(pessoas))
+        db.all('SELECT * FROM User')
+        .then(users=>  res.json(users))
     });
 }
 
-export async function selectPessoa(req, res){
+export async function selectUser(req, res){
     let id = req.body.id;
     openDb().then(db=>{
-        db.get('SELECT * FROM Pessoa WHERE id=?', [id])
-        .then(pessoa=> res.json(pessoa) );
+        db.get('SELECT * FROM User WHERE id=?', [id])
+        .then(user=> res.json(user) );
     });
 }
 
-export async function insertPessoa(req, res){
-    let pessoa = req.body;
+
+export async function insertUser(req, res){
+    let user = req.body;
     openDb().then(db=>{
-        db.run('INSERT INTO Pessoa (nome, idade) VALUES (?,?)', [pessoa.nome, pessoa.idade]);
+        db.run('INSERT INTO User (name, edad) VALUES (?,?)', [user.name, user.edad]);
     });
     res.json({
         "statusCode": 200
     })
 }
 
-export async function updatePessoa(req, res){
-    let pessoa = req.body;
+export async function updateUser(req, res){
+    let user = req.body;
     openDb().then(db=>{
-        db.run('UPDATE Pessoa SET nome=?, idade=? WHERE id=?', [pessoa.nome, pessoa.idade, pessoa.id]);
+        db.run('UPDATE User SET name=?, edad=? WHERE id=?', [user.name, user.edad, user.id]);
     });
     res.json({
         "statusCode": 200
     })
 }
 
-export async function deletePessoa(req, res){
+export async function deleteUser(req, res){
     let id = req.body.id;
     openDb().then(db=>{
-        db.get('DELETE FROM Pessoa WHERE id=?', [id])
+        db.get('DELETE FROM User WHERE id=?', [id])
         .then(res=>res)
     });
     res.json({

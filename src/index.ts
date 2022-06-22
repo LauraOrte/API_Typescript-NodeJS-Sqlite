@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import { createTable } from './Controllers/User';
 
 import express, { Request, Response } from 'express';
 
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 import router from './routes'
 app.use(router); 
 
-
+createTable();
 
 
 app.get('/users', (req: Request, res: Response)=>{

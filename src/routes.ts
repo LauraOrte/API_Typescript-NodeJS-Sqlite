@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createTable, insertPessoa, updatePessoa, selectPessoas, selectPessoa, deletePessoa } from './Controllers/User';
+import { createTable, deleteUser, insertUser, selectUser, selectUsers, updateUser} from './Controllers/User';
 
 const router = Router();
 
@@ -10,10 +10,10 @@ router.get('/', (req, res)=>{
     })
 })
 
-router.get('/pessoas', selectPessoas);
-router.get('/pessoa', selectPessoa);
-router.post('/pessoa', insertPessoa);
-router.put('/pessoa', updatePessoa);
-router.delete('/pessoa', deletePessoa);
+router.get('/users', selectUsers);
+router.get('/user', selectUser);
+router.post('/user', insertUser);
+router.put('/user', updateUser);
+router.delete('/user', deleteUser);
 
 export default router;
