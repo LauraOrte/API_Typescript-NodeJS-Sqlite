@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
-import { createTable } from './Controllers/User';
+import cors from 'cors';
+import { controllersUser } from './Controllers/User';
 
 import express, { Request, Response } from 'express';
 
@@ -7,11 +8,12 @@ const PORT = process.env.POR || 8000;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 import router from './routes'
 app.use(router); 
 
-createTable();
+controllersUser.createTable();
 
 
 app.get('/users', (req: Request, res: Response)=>{

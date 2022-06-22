@@ -1,19 +1,21 @@
+import { Request, Response } from 'express';
 import { openDb } from '../configDB';
 
-export async function createTable(){
+const createTable = async()=>{
     openDb().then(db=>{
         db.exec('CREATE TABLE IF NOT EXISTS User ( id INTEGER AUTO_INCREMENT PRIMARY KEY , name TEXT, edad INTEGER )')
     })
 }
 
-export async function selectUsers(req, res){
+const selectUsers = async(req: Request, res: Response)=>{
     openDb().then(db=>{
         db.all('SELECT * FROM User')
-        .then(users=>  res.json(users))
+        .then(users=> res.json(users))
     });
 }
 
-export async function selectUser(req, res){
+const selectUser=async (req: Request, res: Response) => {
+    
     let id = req.body.id;
     openDb().then(db=>{
         db.get('SELECT * FROM User WHERE id=?', [id])
@@ -22,7 +24,7 @@ export async function selectUser(req, res){
 }
 
 
-export async function insertUser(req, res){
+const insertUser = async (req: Request, res: Response)=>{
     let user = req.body;
     openDb().then(db=>{
         db.run('INSERT INTO User (name, edad) VALUES (?,?)', [user.name, user.edad]);
@@ -32,7 +34,7 @@ export async function insertUser(req, res){
     })
 }
 
-export async function updateUser(req, res){
+const updateUser= async (req: Request, res: Response)=>{
     let user = req.body;
     openDb().then(db=>{
         db.run('UPDATE User SET name=?, edad=? WHERE id=?', [user.name, user.edad, user.id]);
@@ -42,7 +44,7 @@ export async function updateUser(req, res){
     })
 }
 
-export async function deleteUser(req, res){
+const deleteUser = async(req: Request, res: Response)=>{
     let id = req.body.id;
     openDb().then(db=>{
         db.get('DELETE FROM User WHERE id=?', [id])
@@ -51,4 +53,14 @@ export async function deleteUser(req, res){
     res.json({
         "statusCode": 200
     })
+}
+
+export const controllersUser = {
+    createTable,
+    selectUsers,
+    selectUser,
+    insertUser,
+    updateUser,
+    deleteUser
+
 }
