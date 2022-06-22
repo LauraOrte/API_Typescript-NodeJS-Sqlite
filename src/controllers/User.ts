@@ -3,7 +3,7 @@ import { openDb } from '../configDB';
 
 const createTable = async()=>{
     openDb().then(db=>{
-        db.exec('CREATE TABLE IF NOT EXISTS User ( id INTEGER AUTO_INCREMENT PRIMARY KEY , name TEXT, edad INTEGER )')
+        db.exec('CREATE TABLE IF NOT EXISTS User ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, edad INTEGER )')
     })
 }
 
