@@ -6,7 +6,7 @@ Para que el proyecto funcione correctamente, se recomienda tener una serie de pr
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Node.js y npm](https://nodejs.org/es/)
 - [Typescript](https://www.typescriptlang.org/)
-- [Sqlite](https://www.sqlite.org/index.html)
+- [SQlite](https://www.sqlite.org/index.html)
 
 
 # Instalación 
@@ -14,6 +14,10 @@ Para que el proyecto funcione correctamente, se recomienda tener una serie de pr
 Recuerda ejecutar el siguiente comando en la terminal para instalar las dependencias y que todo funcione correctamente:
 ```
 npm install -g ts-node
+```
+# Base de datos
+```
+SQlite, nombre: database
 ```
 
 # Endpoints
