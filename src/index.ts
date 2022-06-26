@@ -16,18 +16,5 @@ app.use(router);
 controllersUser.createTable();
 
 
-app.get('/users', (req: Request, res: Response)=>{
-    res.json({
-        msg: 'Todo ok'
-    })
-})
-
-app.post('/users', (req: Request, res: Response)=>{
-    console.log(req.body);
-    res.json({
-        msg: 'Todo ok'
-    })
-}) 
-
 app.listen(PORT, () => console.log('Servidor inicializado en el puerto ' + PORT));
 
