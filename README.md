@@ -19,7 +19,7 @@ npm install -g ts-node
 
 Base de datos realizada con SQlite, nombre de la base de datos:
 ```
-database
+database.db
 ```
 
 # Endpoints
