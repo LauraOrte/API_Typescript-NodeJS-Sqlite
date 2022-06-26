@@ -16,8 +16,10 @@ Recuerda ejecutar el siguiente comando en la terminal para instalar las dependen
 npm install -g ts-node
 ```
 # Base de datos
+
+Base de datos realizada con SQlite, nombre de la base de datos:
 ```
-SQlite, nombre: database
+database
 ```
 
 # Endpoints
