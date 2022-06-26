@@ -5,7 +5,7 @@
 Para que el proyecto funcione correctamente, se recomienda tener una serie de programas instalados y configurados adecuadamente:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Node.js y npm](https://nodejs.org/es/)
-- [Typescript] (https://www.typescriptlang.org/)
+- [Typescript](https://www.typescriptlang.org/)
 - [Sqlite](https://www.sqlite.org/index.html)
 
 
